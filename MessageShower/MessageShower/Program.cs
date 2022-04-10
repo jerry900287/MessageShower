@@ -7,7 +7,7 @@ using CommandLine;
 
 namespace MessageShower
 {
-    internal static class Program
+    static class Program
     {
         public class Options
         {
@@ -15,10 +15,13 @@ namespace MessageShower
             public string mode { get; set; } = "Info";
 
             [Option('t', "title", Required = false, HelpText = "The title of Message Shower.")]
-            public string title { get; set; } = "Message Info Title";
+            public string title { get; set; } = "Message Shower Title";
 
-            [Option('s', "message", Required = false, HelpText = "The message of Message Shower.")]
-            public string message { get; set; } = "Message Info Message";
+            [Option('z', "contentTW", Required = false, HelpText = "The content (zh-tw) of Message Shower.")]
+            public string contentTW { get; set; } = "Message Shower 內容";
+
+            [Option('e', "contentUS", Required = false, HelpText = "The content (en-us) of Message Shower.")]
+            public string contentUS { get; set; } = "Message Shower Content";
         }
         /// <summary>
         /// 應用程式的主要進入點。
@@ -31,22 +34,26 @@ namespace MessageShower
         }
         private static void Run(Options option)
         {
+            string[] args;
             switch (option.mode)
             {
                 case "Info":
+                    args = new string[] { option.title, option.contentTW, option.contentUS };
                     Application.EnableVisualStyles();
                     Application.SetCompatibleTextRenderingDefault(false);
-                    Application.Run(new InfoForm());
+                    Application.Run(new InfoForm(args));
                     break;
                 case "Exe":
+                    args = new string[] { option.title, option.contentTW, option.contentUS };
                     Application.EnableVisualStyles();
                     Application.SetCompatibleTextRenderingDefault(false);
-                    Application.Run(new InfoForm());
+                    Application.Run(new InfoForm(args));
                     break;
                 case "ExeF":
+                    args = new string[] { option.title, option.contentTW, option.contentUS };
                     Application.EnableVisualStyles();
                     Application.SetCompatibleTextRenderingDefault(false);
-                    Application.Run(new InfoForm());
+                    Application.Run(new InfoForm(args));
                     break;
                 default: 
                     MessageBox.Show("The mode is not exist!", "Message Shower", MessageBoxButtons.OK, MessageBoxIcon.Error);
