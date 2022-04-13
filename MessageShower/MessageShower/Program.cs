@@ -18,10 +18,14 @@ namespace MessageShower
             public string title { get; set; } = "Message Shower Title";
 
             [Option('z', "contentTW", Required = false, HelpText = "The content (zh-tw) of Message Shower.")]
-            public string contentTW { get; set; } = "Message Shower 內容";
+            public string contentTW { get; set; } = "Message Shower Content (Traditional Chinese)";
 
             [Option('e', "contentUS", Required = false, HelpText = "The content (en-us) of Message Shower.")]
-            public string contentUS { get; set; } = "Message Shower Content";
+            public string contentUS { get; set; } = "Message Shower Content (English)";
+
+            [Option('f', "file", Required = false, HelpText = "The execution file of Message Shower.")]
+            public string file { get; set; } = String.Empty;
+
         }
         /// <summary>
         /// 應用程式的主要進入點。
@@ -44,16 +48,16 @@ namespace MessageShower
                     Application.Run(new InfoForm(args));
                     break;
                 case "Exe":
-                    args = new string[] { option.title, option.contentTW, option.contentUS };
+                    args = new string[] { option.title, option.contentTW, option.contentUS, option.file };
                     Application.EnableVisualStyles();
                     Application.SetCompatibleTextRenderingDefault(false);
-                    Application.Run(new InfoForm(args));
+                    Application.Run(new ExeForm(args));
                     break;
                 case "ExeF":
-                    args = new string[] { option.title, option.contentTW, option.contentUS };
+                    args = new string[] { option.title, option.contentTW, option.contentUS, option.file };
                     Application.EnableVisualStyles();
                     Application.SetCompatibleTextRenderingDefault(false);
-                    Application.Run(new InfoForm(args));
+                    Application.Run(new ExeFForm(args));
                     break;
                 default: 
                     MessageBox.Show("The mode is not exist!", "Message Shower", MessageBoxButtons.OK, MessageBoxIcon.Error);

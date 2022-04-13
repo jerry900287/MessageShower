@@ -12,6 +12,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -36,7 +38,7 @@
     <StartupObject />
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>InfoIcon.ico</ApplicationIcon>
+    <ApplicationIcon>MessageShowerIcon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
@@ -58,6 +60,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExeFForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExeFForm.Designer.cs">
+      <DependentUpon>ExeFForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExeForm.Designer.cs">
+      <DependentUpon>ExeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="InfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +80,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ExeFForm.resx">
+      <DependentUpon>ExeFForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExeForm.resx">
+      <DependentUpon>ExeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -95,6 +115,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="InfoIcon.ico" />
+    <Content Include="MessageShowerIcon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

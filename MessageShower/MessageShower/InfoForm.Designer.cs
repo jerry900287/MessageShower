@@ -41,10 +41,10 @@
             // confirmButton
             // 
             this.confirmButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confirmButton.Location = new System.Drawing.Point(218, 388);
+            this.confirmButton.Location = new System.Drawing.Point(225, 398);
             this.confirmButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.confirmButton.Name = "confirmButton";
-            this.confirmButton.Size = new System.Drawing.Size(150, 60);
+            this.confirmButton.Size = new System.Drawing.Size(150, 50);
             this.confirmButton.TabIndex = 0;
             this.confirmButton.Text = "confirmButton";
             this.confirmButton.UseVisualStyleBackColor = true;
